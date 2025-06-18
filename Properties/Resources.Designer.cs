@@ -71,7 +71,7 @@ namespace Grupo06_TP_Programacion1.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Data Source=Lumy\SQLEXPRESS;Initial Catalog=GRUPO06_1W1_GIMNASIO_CORRECCION;User ID=sa;Password=2580.
+        ///   Busca una cadena traducida similar a Data Source=Lumy\SQLEXPRESS;Initial Catalog=GRUPO06_1W1_GIMNASIO_REFACTORIZADO;User ID=sa;Password=2580.
         /// </summary>
         internal static string CadenaConexion {
             get {

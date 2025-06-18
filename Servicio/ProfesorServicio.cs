@@ -20,27 +20,54 @@ namespace Grupo06_TP_Programacion1.Servicio
 
 
 
-        public List<TipoDocumento> RecuperarTiposDocumentos()
+        public List<TipoDocumento> TraerTiposDocumentos()
         {
             return oDao.RecuperarTiposDocumentos();
         }
 
-        public List<Genero> RecuperarGeneros()
+        public List<Genero> TraerGeneros()
         {
             return oDao.RecuperarGeneros();
         }
-        public List<Provincia> RecuperarProvincias()
+        public List<Provincia> TraerProvincias()
         {
             return oDao.RecuperarProvincias();
         }
-        public List<Localidad> RecuperarLocalidades(int idProvincia)
+        public List<Localidad> TraerLocalidades(int idProvincia)
         {
             return oDao.RecuperarLocalidades(idProvincia);
         }
-        public List<Barrio> RecuperarBarrios(int idLocalidad)
+        public List<Barrio> TraerBarrios(int idLocalidad)
         {
             return oDao.RecuperarBarrios(idLocalidad);
         }
+        public List<Curso> TraerCursos()
+        {
+            return oDao.RecuperarCursos();
+        }
+        public List<Contextura> TraerContexturas()
+        {
+            return oDao.RecuperarContexturas();
+        }
+        public List<TipoSangre> TraerTiposSangre()
+        {
+            return oDao.RecuperarTiposSangre();
+        }
 
+        public int GuardarProfesor(Profesor profesor)
+        {
+            
+            return oDao.InsertarProfesor(profesor);
+        }
+
+        public int GuardarSocio (Socio socio)
+        {
+            return oDao.InsertarSocio(socio);
+        }
+
+        public List<Socio> TraerSocios(string filtro, ComboBox combo)
+        {
+            return oDao.RecuperarSocios(filtro, combo);
+        }
     }
 }

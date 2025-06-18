@@ -9,15 +9,15 @@ namespace Grupo06_TP_Programacion1.Negocio
     public abstract class Persona
     {
         // Atributos   
-        protected private string apellido;
-        protected private string nombre;
-        protected private TipoDocumento tipo;
-        protected private string documento;
-        protected private Genero genero;
-        protected private DateTime fechaNacimiento;
-        protected private string email;
-        protected private string telefono;
-        protected private Barrio barrio;
+        protected  string apellido;
+        protected  string nombre;
+        protected  TipoDocumento tipo;
+        protected  string documento;
+        protected  Genero genero;
+        protected  DateTime fechaNacimiento;
+        protected  string email;
+        protected  string telefono;
+        protected  Barrio barrio;
 
         // Properties
         public string Apellido
@@ -64,6 +64,19 @@ namespace Grupo06_TP_Programacion1.Negocio
         {
             get { return barrio; }
             set { barrio = value; }
+        }
+
+        public Persona()
+        {
+            apellido = string.Empty;
+            nombre = string.Empty;
+            tipo = new TipoDocumento();
+            documento = string.Empty;
+            genero = new Genero();
+            fechaNacimiento = DateTime.Now;
+            email = string.Empty;
+            telefono = string.Empty;
+            barrio = new Barrio();
         }
     }
 }
