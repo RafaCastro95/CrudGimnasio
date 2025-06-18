@@ -71,5 +71,10 @@ namespace Grupo06_TP_Programacion1.Presentacion
         {
             CargarGridViewProfesores();
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(dgvProfesores.SelectedRows);
+        }
     }
 }

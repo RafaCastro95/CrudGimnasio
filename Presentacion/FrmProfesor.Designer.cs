@@ -34,6 +34,12 @@
             this.gpbProfesores = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvProfesores = new System.Windows.Forms.DataGridView();
+            this.IdProfesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApellidoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Barrio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cursos = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cboCurso = new System.Windows.Forms.ComboBox();
             this.lblCursos = new System.Windows.Forms.Label();
             this.txtNombreProfesor = new System.Windows.Forms.TextBox();
@@ -41,12 +47,6 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
-            this.IdProfesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApellidoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Barrio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cursos = new System.Windows.Forms.DataGridViewButtonColumn();
             this.gpbProfesores.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfesores)).BeginInit();
@@ -112,6 +112,43 @@
             this.dgvProfesores.Size = new System.Drawing.Size(591, 192);
             this.dgvProfesores.TabIndex = 0;
             // 
+            // IdProfesor
+            // 
+            this.IdProfesor.HeaderText = "IdProfesor";
+            this.IdProfesor.Name = "IdProfesor";
+            this.IdProfesor.Visible = false;
+            // 
+            // ApellidoNombre
+            // 
+            this.ApellidoNombre.HeaderText = "Apellido,  Nombre";
+            this.ApellidoNombre.Name = "ApellidoNombre";
+            this.ApellidoNombre.Width = 150;
+            // 
+            // Documento
+            // 
+            this.Documento.HeaderText = "N° Documento";
+            this.Documento.Name = "Documento";
+            // 
+            // Telefono
+            // 
+            this.Telefono.HeaderText = "Teléfono";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.Width = 96;
+            // 
+            // Barrio
+            // 
+            this.Barrio.HeaderText = "Barrio";
+            this.Barrio.Name = "Barrio";
+            // 
+            // Cursos
+            // 
+            this.Cursos.HeaderText = "Cursos";
+            this.Cursos.Name = "Cursos";
+            this.Cursos.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Cursos.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Cursos.Text = "Ver Cursos";
+            this.Cursos.UseColumnTextForButtonValue = true;
+            // 
             // cboCurso
             // 
             this.cboCurso.FormattingEnabled = true;
@@ -163,6 +200,7 @@
             this.btnEditar.TabIndex = 2;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnBorrar
             // 
@@ -172,43 +210,6 @@
             this.btnBorrar.TabIndex = 3;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
-            // 
-            // IdProfesor
-            // 
-            this.IdProfesor.HeaderText = "IdProfesor";
-            this.IdProfesor.Name = "IdProfesor";
-            this.IdProfesor.Visible = false;
-            // 
-            // ApellidoNombre
-            // 
-            this.ApellidoNombre.HeaderText = "Apellido,  Nombre";
-            this.ApellidoNombre.Name = "ApellidoNombre";
-            this.ApellidoNombre.Width = 150;
-            // 
-            // Documento
-            // 
-            this.Documento.HeaderText = "N° Documento";
-            this.Documento.Name = "Documento";
-            // 
-            // Telefono
-            // 
-            this.Telefono.HeaderText = "Teléfono";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.Width = 96;
-            // 
-            // Barrio
-            // 
-            this.Barrio.HeaderText = "Barrio";
-            this.Barrio.Name = "Barrio";
-            // 
-            // Cursos
-            // 
-            this.Cursos.HeaderText = "Cursos";
-            this.Cursos.Name = "Cursos";
-            this.Cursos.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Cursos.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Cursos.Text = "Ver Cursos";
-            this.Cursos.UseColumnTextForButtonValue = true;
             // 
             // FrmProfesor
             // 
