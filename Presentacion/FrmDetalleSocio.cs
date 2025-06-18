@@ -30,6 +30,7 @@ namespace Grupo06_TP_Programacion1.Presentacion
 
         private void FrmDetalleSocio_Load(object sender, EventArgs e)
         {
+<<<<<<< Updated upstream
             ComboBoxHelper.CargarCombo(cboTipoDocumento, oPServicio.TraerTiposDocumentos(), "Descripcion", "IdTipo");
             ComboBoxHelper.CargarCombo(cboGenero, oPServicio.TraerGeneros(), "Descripcion", "IdGenero");
             ComboBoxHelper.CargarCombo(cboProvincia, oPServicio.TraerProvincias(), "Descripcion", "IdProvincia");
@@ -91,6 +92,10 @@ namespace Grupo06_TP_Programacion1.Presentacion
             {
                 MessageBox.Show("Error al guardar el socio. Intente nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+=======
+            //oPServicio.CargarCombo(cboTipoDocumento, oPServicio.RecuperarTiposDocumentos(), "Descripcion", "IdTipo");
+            //oPServicio.CargarCombo(cboGenero, oPServicio.RecuperarGeneros(), "Descripcion", "IdGenero");
+>>>>>>> Stashed changes
         }
     }
 }
