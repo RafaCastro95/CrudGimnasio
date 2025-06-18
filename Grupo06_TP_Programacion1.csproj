@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComboBoxHelper.cs" />
     <Compile Include="Dao\PersonaDao.cs" />
     <Compile Include="Datos\AccesoDatos.cs" />
     <Compile Include="Datos\Parametro.cs" />

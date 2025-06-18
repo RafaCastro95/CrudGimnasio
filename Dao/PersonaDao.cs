@@ -49,5 +49,52 @@ namespace Grupo06_TP_Programacion1.Dao
             }
             return listaGeneros;
         }
+
+        // Metodo para cargar comboBox Provincia
+        public List<Provincia> RecuperarProvincias()
+        {
+            List<Provincia> listaProvincias = new List<Provincia>();
+            DataTable tabla = oBd.ConsultarTabla("Provincias");
+            foreach (DataRow fila in tabla.Rows)
+            {
+                Provincia provincia = new Provincia();
+                provincia.IdProvincia = (int)fila[0];
+                provincia.Descripcion = fila[1].ToString();
+                listaProvincias.Add(provincia);
+            }
+            return listaProvincias;
+        }
+
+        // Metodo para cargar comboBox Localidad
+        public List<Localidad> RecuperarLocalidades(int idProvincia)
+        {
+            List<Localidad> listaLocalidades = new List<Localidad>();
+            string consultaSQL = "SELECT * FROM Localidades WHERE id_provincia = " + idProvincia;
+            DataTable tabla = oBd.ConsultarBD(consultaSQL);
+            foreach (DataRow fila in tabla.Rows)
+            {
+                Localidad localidad = new Localidad();
+                localidad.IdLocalidad = (int)fila[0];
+                localidad.Descripcion = fila[1].ToString();
+                listaLocalidades.Add(localidad);
+            }
+            return listaLocalidades;
+        }
+
+        // Metodo para cargar ComboBox Barrio
+        public List<Barrio> RecuperarBarrios(int idLocalidad)
+        {
+            List<Barrio> listaBarrios = new List<Barrio>();
+            string consultaSQL = "SELECT * FROM Barrios WHERE id_localidad = " + idLocalidad;
+            DataTable tabla = oBd.ConsultarBD(consultaSQL);
+            foreach (DataRow fila in tabla.Rows)
+            {
+                Barrio barrio = new Barrio();
+                barrio.IdBarrio = (int)fila[0];
+                barrio.Descripcion = fila[1].ToString();
+                listaBarrios.Add(barrio);
+            }
+            return listaBarrios;
+        }
     }
 }

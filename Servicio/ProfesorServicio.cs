@@ -29,17 +29,18 @@ namespace Grupo06_TP_Programacion1.Servicio
         {
             return oDao.RecuperarGeneros();
         }
-
-
-
-        // Cargar combo generico para usarlo en cualquier formulario
-        public void CargarCombo<T>(ComboBox combo, List<T> listaTipos, string displayMember, string valueMember )
+        public List<Provincia> RecuperarProvincias()
         {
-            combo.DataSource = listaTipos;
-            combo.DisplayMember = displayMember;
-            combo.ValueMember = valueMember;
-            combo.DropDownStyle = ComboBoxStyle.DropDownList; // Para que no se pueda escribir en el combo
-            combo.SelectedIndex = -1; // Para que no seleccione un valor por defecto
+            return oDao.RecuperarProvincias();
         }
+        public List<Localidad> RecuperarLocalidades(int idProvincia)
+        {
+            return oDao.RecuperarLocalidades(idProvincia);
+        }
+        public List<Barrio> RecuperarBarrios(int idLocalidad)
+        {
+            return oDao.RecuperarBarrios(idLocalidad);
+        }
+
     }
 }
