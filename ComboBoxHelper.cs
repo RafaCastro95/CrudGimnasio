@@ -15,8 +15,8 @@ namespace Grupo06_TP_Programacion1
             combo.DataSource = listaTipos;
             combo.DisplayMember = displayMember;
             combo.ValueMember = valueMember;
-            combo.DropDownStyle = ComboBoxStyle.DropDownList; // Para que no se pueda escribir en el combo
-            combo.SelectedIndex = -1; // Para que no seleccione un valor por defecto
+            combo.DropDownStyle = ComboBoxStyle.DropDownList; 
+            combo.SelectedIndex = -1; 
         }
     }
 }
