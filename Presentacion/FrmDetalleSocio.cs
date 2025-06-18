@@ -27,8 +27,8 @@ namespace Grupo06_TP_Programacion1.Presentacion
 
         private void FrmDetalleSocio_Load(object sender, EventArgs e)
         {
-            oPServicio.CargarCombo(cboTipoDocumento, oPServicio.RecuperarTiposDocumentos(), "Descripcion", "IdTipo");
-            oPServicio.CargarCombo(cboGenero, oPServicio.RecuperarGeneros(), "Descripcion", "IdGenero");
+            //oPServicio.CargarCombo(cboTipoDocumento, oPServicio.RecuperarTiposDocumentos(), "Descripcion", "IdTipo");
+            //oPServicio.CargarCombo(cboGenero, oPServicio.RecuperarGeneros(), "Descripcion", "IdGenero");
         }
     }
 }

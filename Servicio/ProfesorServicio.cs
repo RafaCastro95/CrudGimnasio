@@ -30,16 +30,14 @@ namespace Grupo06_TP_Programacion1.Servicio
             return oDao.RecuperarGeneros();
         }
 
-
-
-        // Cargar combo generico para usarlo en cualquier formulario
-        public void CargarCombo<T>(ComboBox combo, List<T> listaTipos, string displayMember, string valueMember )
+        public List<Profesor> RecuperarProfesores(string filtroNombre, int filtroClase)
         {
-            combo.DataSource = listaTipos;
-            combo.DisplayMember = displayMember;
-            combo.ValueMember = valueMember;
-            combo.DropDownStyle = ComboBoxStyle.DropDownList; // Para que no se pueda escribir en el combo
-            combo.SelectedIndex = -1; // Para que no seleccione un valor por defecto
+            return oDao.RecuperarProfesores(filtroNombre, filtroClase, 0);
+        }
+
+        public Profesor RecuperarProfesorPorID(int idProfesor)
+        {
+            return oDao.RecuperarProfesorPorID(idProfesor);
         }
     }
 }

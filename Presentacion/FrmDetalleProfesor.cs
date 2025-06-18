@@ -27,8 +27,9 @@ namespace Grupo06_TP_Programacion1.Presentacion
 
         private void FrmDetalleProfesor_Load(object sender, EventArgs e)
         {
-            oPServicio.CargarCombo(cboTipoDocumento, oPServicio.RecuperarTiposDocumentos(), "Descripcion", "IdTipo");
-            oPServicio.CargarCombo(cboGenero, oPServicio.RecuperarGeneros(), "Descripcion", "IdGenero");
+            ComboBoxHelper.CargarCombo(cboTipoDocumento, oPServicio.RecuperarTiposDocumentos(), "Descripcion", "IdTipo");
+            ComboBoxHelper.CargarCombo(cboGenero, oPServicio.RecuperarGeneros(), "Descripcion", "IdGenero");
         }
+
     }
 }
