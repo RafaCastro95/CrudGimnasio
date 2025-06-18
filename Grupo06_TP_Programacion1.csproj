@@ -61,6 +61,12 @@
     <Compile Include="Negocio\Socio.cs" />
     <Compile Include="Negocio\TipoDocumento.cs" />
     <Compile Include="Negocio\TipoSangre.cs" />
+    <Compile Include="Presentacion\FrmDetalleCursosProfesores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmDetalleCursosProfesores.Designer.cs">
+      <DependentUpon>FrmDetalleCursosProfesores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\FrmDetalleSocio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     <Compile Include="Servicio\SocioServicio.cs" />
     <EmbeddedResource Include="Presentacion\FrmConsultas.resx">
       <DependentUpon>FrmConsultas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmDetalleCursosProfesores.resx">
+      <DependentUpon>FrmDetalleCursosProfesores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmDetalleProfesor.resx">
       <DependentUpon>FrmDetalleProfesor.cs</DependentUpon>

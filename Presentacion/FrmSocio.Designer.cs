@@ -33,23 +33,24 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.gpbProfesores = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgvProfesores = new System.Windows.Forms.DataGridView();
-            this.IdProfesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvSocios = new System.Windows.Forms.DataGridView();
+            this.IdSocio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ApellidoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cursos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Barrio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cboCursos = new System.Windows.Forms.ComboBox();
             this.lblCursos = new System.Windows.Forms.Label();
-            this.txtNombreProfesor = new System.Windows.Forms.TextBox();
+            this.txtNombreSocio = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.gpbProfesores.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProfesores)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSocios)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBorrar
@@ -75,81 +76,90 @@
             this.gpbProfesores.Controls.Add(this.groupBox2);
             this.gpbProfesores.Controls.Add(this.cboCursos);
             this.gpbProfesores.Controls.Add(this.lblCursos);
-            this.gpbProfesores.Controls.Add(this.txtNombreProfesor);
+            this.gpbProfesores.Controls.Add(this.txtNombreSocio);
             this.gpbProfesores.Controls.Add(this.lblNombre);
             this.gpbProfesores.Controls.Add(this.btnConsultar);
-            this.gpbProfesores.Location = new System.Drawing.Point(40, 44);
+            this.gpbProfesores.Location = new System.Drawing.Point(27, 44);
             this.gpbProfesores.Name = "gpbProfesores";
-            this.gpbProfesores.Size = new System.Drawing.Size(659, 322);
+            this.gpbProfesores.Size = new System.Drawing.Size(672, 322);
             this.gpbProfesores.TabIndex = 0;
             this.gpbProfesores.TabStop = false;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dgvProfesores);
+            this.groupBox2.Controls.Add(this.dgvSocios);
             this.groupBox2.Location = new System.Drawing.Point(33, 105);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(597, 211);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             // 
-            // dgvProfesores
+            // dgvSocios
             // 
-            this.dgvProfesores.AllowUserToAddRows = false;
-            this.dgvProfesores.AllowUserToDeleteRows = false;
-            this.dgvProfesores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProfesores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdProfesor,
+            this.dgvSocios.AllowUserToAddRows = false;
+            this.dgvSocios.AllowUserToDeleteRows = false;
+            this.dgvSocios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSocios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdSocio,
             this.ApellidoNombre,
             this.Documento,
-            this.Cursos,
-            this.Telefono,
-            this.Barrio});
-            this.dgvProfesores.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvProfesores.Location = new System.Drawing.Point(3, 16);
-            this.dgvProfesores.Name = "dgvProfesores";
-            this.dgvProfesores.ReadOnly = true;
-            this.dgvProfesores.Size = new System.Drawing.Size(591, 192);
-            this.dgvProfesores.TabIndex = 0;
+            this.Curso,
+            this.FechaIngreso,
+            this.FechaFin,
+            this.Importe});
+            this.dgvSocios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSocios.Location = new System.Drawing.Point(3, 16);
+            this.dgvSocios.Name = "dgvSocios";
+            this.dgvSocios.ReadOnly = true;
+            this.dgvSocios.Size = new System.Drawing.Size(591, 192);
+            this.dgvSocios.TabIndex = 0;
             // 
-            // IdProfesor
+            // IdSocio
             // 
-            this.IdProfesor.HeaderText = "IdProfesor";
-            this.IdProfesor.Name = "IdProfesor";
-            this.IdProfesor.ReadOnly = true;
-            this.IdProfesor.Visible = false;
+            this.IdSocio.HeaderText = "IdSocio";
+            this.IdSocio.Name = "IdSocio";
+            this.IdSocio.ReadOnly = true;
+            this.IdSocio.Visible = false;
+            this.IdSocio.Width = 50;
             // 
             // ApellidoNombre
             // 
-            this.ApellidoNombre.HeaderText = "Apellido,  Nombre";
+            this.ApellidoNombre.HeaderText = "Apellido, Nombre";
             this.ApellidoNombre.Name = "ApellidoNombre";
             this.ApellidoNombre.ReadOnly = true;
-            this.ApellidoNombre.Width = 150;
+            this.ApellidoNombre.Width = 130;
             // 
             // Documento
             // 
-            this.Documento.HeaderText = "N° Documento";
+            this.Documento.HeaderText = "Documento";
             this.Documento.Name = "Documento";
             this.Documento.ReadOnly = true;
             // 
-            // Cursos
+            // Curso
             // 
-            this.Cursos.HeaderText = "Cursos";
-            this.Cursos.Name = "Cursos";
-            this.Cursos.ReadOnly = true;
+            this.Curso.HeaderText = "Curso";
+            this.Curso.Name = "Curso";
+            this.Curso.ReadOnly = true;
+            this.Curso.Width = 70;
             // 
-            // Telefono
+            // FechaIngreso
             // 
-            this.Telefono.HeaderText = "Teléfono";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
-            this.Telefono.Width = 96;
+            this.FechaIngreso.HeaderText = "Fecha Ingreso";
+            this.FechaIngreso.Name = "FechaIngreso";
+            this.FechaIngreso.ReadOnly = true;
             // 
-            // Barrio
+            // FechaFin
             // 
-            this.Barrio.HeaderText = "Barrio";
-            this.Barrio.Name = "Barrio";
-            this.Barrio.ReadOnly = true;
+            this.FechaFin.HeaderText = "Fecha Fin";
+            this.FechaFin.Name = "FechaFin";
+            this.FechaFin.ReadOnly = true;
+            this.FechaFin.Width = 90;
+            // 
+            // Importe
+            // 
+            this.Importe.HeaderText = "Importe";
+            this.Importe.Name = "Importe";
+            this.Importe.ReadOnly = true;
             // 
             // cboCursos
             // 
@@ -168,12 +178,12 @@
             this.lblCursos.TabIndex = 2;
             this.lblCursos.Text = "Cursos";
             // 
-            // txtNombreProfesor
+            // txtNombreSocio
             // 
-            this.txtNombreProfesor.Location = new System.Drawing.Point(114, 43);
-            this.txtNombreProfesor.Name = "txtNombreProfesor";
-            this.txtNombreProfesor.Size = new System.Drawing.Size(348, 20);
-            this.txtNombreProfesor.TabIndex = 1;
+            this.txtNombreSocio.Location = new System.Drawing.Point(114, 43);
+            this.txtNombreSocio.Name = "txtNombreSocio";
+            this.txtNombreSocio.Size = new System.Drawing.Size(348, 20);
+            this.txtNombreSocio.TabIndex = 1;
             // 
             // lblNombre
             // 
@@ -192,6 +202,7 @@
             this.btnConsultar.TabIndex = 4;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // btnSalir
             // 
@@ -226,10 +237,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmSocio";
             this.Text = "Socios";
+            this.Load += new System.EventHandler(this.FrmSocio_Load);
             this.gpbProfesores.ResumeLayout(false);
             this.gpbProfesores.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProfesores)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSocios)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -240,19 +252,20 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.GroupBox gpbProfesores;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dgvProfesores;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdProfesor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ApellidoNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Documento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cursos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Barrio;
         private System.Windows.Forms.ComboBox cboCursos;
         private System.Windows.Forms.Label lblCursos;
-        private System.Windows.Forms.TextBox txtNombreProfesor;
+        private System.Windows.Forms.TextBox txtNombreSocio;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.DataGridView dgvSocios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdSocio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ApellidoNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Documento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Curso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaIngreso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaFin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
     }
 }
