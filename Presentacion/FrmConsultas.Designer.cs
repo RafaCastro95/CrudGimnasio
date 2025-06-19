@@ -77,6 +77,9 @@
             // 
             this.dgvConsultas.AllowUserToAddRows = false;
             this.dgvConsultas.AllowUserToDeleteRows = false;
+            this.dgvConsultas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvConsultas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvConsultas.BackgroundColor = System.Drawing.Color.Lavender;
             this.dgvConsultas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConsultas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvConsultas.Location = new System.Drawing.Point(3, 16);
@@ -88,9 +91,16 @@
             // cboConsulta
             // 
             this.cboConsulta.FormattingEnabled = true;
+            this.cboConsulta.Items.AddRange(new object[] {
+            "Socios de Musculación o Spinnig con credencial vencida",
+            "Informe de Cobros por Provincia",
+            "Socios de Córdoba con tipo de Sangre A+/B+/B-",
+            "Socios de Córdoba, Mendoza o Buenos Aires inscriptos desde 2023",
+            "Socios de Musculacion o Pilates en meses de Agosto, Septiembre o Noviembre",
+            "Socios operados o en recuperacion y no asistan al gym en los últimos 18 meses"});
             this.cboConsulta.Location = new System.Drawing.Point(164, 39);
             this.cboConsulta.Name = "cboConsulta";
-            this.cboConsulta.Size = new System.Drawing.Size(348, 21);
+            this.cboConsulta.Size = new System.Drawing.Size(404, 21);
             this.cboConsulta.TabIndex = 1;
             // 
             // lblConsultas
@@ -104,12 +114,13 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(545, 32);
+            this.btnConsultar.Location = new System.Drawing.Point(582, 34);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(87, 28);
             this.btnConsultar.TabIndex = 2;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // btnSalir
             // 
@@ -131,6 +142,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmConsultas";
             this.Text = "Consultas";
+            this.Load += new System.EventHandler(this.FrmConsultas_Load);
             this.gpbProfesores.ResumeLayout(false);
             this.gpbProfesores.PerformLayout();
             this.groupBox2.ResumeLayout(false);

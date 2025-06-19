@@ -122,7 +122,7 @@
     <value>..\Resources\Aha-Soft-People-User-group.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CadenaConexion" xml:space="preserve">
-    <value>Data Source=localhost;Initial Catalog=GRUPO06_1W1_GIMNASIO_CORRECCION;Integrated Security=True;</value>
+    <value>Data Source=Lumy\SQLEXPRESS;Initial Catalog=GRUPO06_1W1_GIMNASIO_REFACTORIZADO;User ID=sa;Password=2580</value>
   </data>
   <data name="Gym_final" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gym final.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

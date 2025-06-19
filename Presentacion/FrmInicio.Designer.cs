@@ -29,23 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInicio));
-            this.PbxGym = new System.Windows.Forms.PictureBox();
             this.BtnSocios = new System.Windows.Forms.Button();
             this.BtnProfesores = new System.Windows.Forms.Button();
             this.BtnConsultas = new System.Windows.Forms.Button();
+            this.PbxGym = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.PbxGym)).BeginInit();
             this.SuspendLayout();
-            // 
-            // PbxGym
-            // 
-            this.PbxGym.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PbxGym.Image = global::Grupo06_TP_Programacion1.Properties.Resources.Gym_final;
-            this.PbxGym.Location = new System.Drawing.Point(0, 0);
-            this.PbxGym.Name = "PbxGym";
-            this.PbxGym.Size = new System.Drawing.Size(821, 588);
-            this.PbxGym.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PbxGym.TabIndex = 0;
-            this.PbxGym.TabStop = false;
             // 
             // BtnSocios
             // 
@@ -77,6 +66,17 @@
             this.BtnConsultas.UseVisualStyleBackColor = true;
             this.BtnConsultas.Click += new System.EventHandler(this.BtnConsultas_Click);
             // 
+            // PbxGym
+            // 
+            this.PbxGym.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PbxGym.Image = global::Grupo06_TP_Programacion1.Properties.Resources.Gym_final;
+            this.PbxGym.Location = new System.Drawing.Point(0, 0);
+            this.PbxGym.Name = "PbxGym";
+            this.PbxGym.Size = new System.Drawing.Size(821, 588);
+            this.PbxGym.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PbxGym.TabIndex = 0;
+            this.PbxGym.TabStop = false;
+            // 
             // FrmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -96,11 +96,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox PbxGym;
         private System.Windows.Forms.Button BtnSocios;
         private System.Windows.Forms.Button BtnProfesores;
         private System.Windows.Forms.Button BtnConsultas;
+        private System.Windows.Forms.PictureBox PbxGym;
     }
 }
 

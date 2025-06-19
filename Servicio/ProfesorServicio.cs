@@ -2,6 +2,7 @@
 using Grupo06_TP_Programacion1.Negocio;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,8 +19,6 @@ namespace Grupo06_TP_Programacion1.Servicio
             oDao = new PersonaDao();
         }
 
-
-
         public List<TipoDocumento> TraerTiposDocumentos()
         {
             return oDao.RecuperarTiposDocumentos();
@@ -28,6 +27,16 @@ namespace Grupo06_TP_Programacion1.Servicio
         public List<Genero> TraerGeneros()
         {
             return oDao.RecuperarGeneros();
+        }
+
+        public List<Profesor> RecuperarProfesores(string filtroNombre, int filtroClase)
+        {
+            return oDao.RecuperarProfesores(filtroNombre, filtroClase, 0);
+        }
+
+        public Profesor RecuperarProfesorPorID(int idProfesor)
+        {
+            return oDao.RecuperarProfesorPorID(idProfesor);
         }
         public List<Provincia> TraerProvincias()
         {
@@ -65,19 +74,68 @@ namespace Grupo06_TP_Programacion1.Servicio
             return oDao.InsertarSocio(socio);
         }
 
-        public List<Socio> TraerSocios(string filtro, ComboBox combo)
+        public List<Socio> TraerSocios(string filtro, int valorCurso)
         {
-            return oDao.RecuperarSocios(filtro, combo);
+            return oDao.RecuperarSocios(filtro, valorCurso);
         }
 
-        public List<Profesor> TraerProfesores(string filtroNombre, int filtroClase)
+        public List<Clase> TraerClasesPorProfesor(int idProfesor)
         {
-            return oDao.RecuperarProfesores(filtroNombre, filtroClase, 0);
+            return oDao.TraerClasesPorProfesor(idProfesor);
         }
 
-        public Profesor TraerProfesorPorID(int idProfesor)
+        public List<Socio> TraerSociosPorClase(int idClase, int idProfesor)
         {
-            return oDao.RecuperarProfesorPorID(idProfesor);
+            return oDao.TraerSociosPorClase(idClase, idProfesor);
+        }
+        public int ElimianarProfesor(int id_profesor)
+        {
+            return oDao.EliminarProfesor(id_profesor);
+        }
+        public int EliminarSocio(int id_socio)
+        {
+            return oDao.EliminarSocio(id_socio);
+        }
+        public int ActualizarProfesor(int IdProfesor, Profesor profesor)
+        {
+            return oDao.EditarProfesor(IdProfesor, profesor);
+        }
+
+        public DataTable RecuperarProfesor(int IdProfesor)
+        {
+            return oDao.RecuperarProfesorPorId(IdProfesor);
+        }
+
+        public DataTable RecuperarSocio(string Documento)
+        {
+            return oDao.RecuperarSocioPorDocumento(Documento);
+        }
+
+        public DataTable Resultado1()
+        {
+            return oDao.Consulta1();
+        }
+
+        public DataTable Resultado2()
+        {
+            return oDao.Consulta2();
+        }
+
+        public DataTable Resultado3()
+        {
+            return oDao.Consulta3();
+        }
+        public DataTable Resultado4()
+        {
+            return oDao.Consulta4();
+        }
+        public DataTable Resultado5()
+        {
+            return oDao.Consulta5();
+        }
+        public DataTable Resultado6()
+        {
+            return oDao.Consulta6();
         }
     }
 }

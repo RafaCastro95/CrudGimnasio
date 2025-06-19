@@ -42,7 +42,7 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.IdProfesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApellidoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Profesores = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Barrio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,11 +97,14 @@
             // 
             // dgvProfesores
             // 
+            this.dgvProfesores.AllowUserToAddRows = false;
             this.dgvProfesores.AllowUserToDeleteRows = false;
+            this.dgvProfesores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProfesores.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvProfesores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProfesores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdProfesor,
-            this.ApellidoNombre,
+            this.Profesores,
             this.Documento,
             this.Telefono,
             this.Barrio,
@@ -109,8 +112,10 @@
             this.dgvProfesores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProfesores.Location = new System.Drawing.Point(3, 16);
             this.dgvProfesores.Name = "dgvProfesores";
+            this.dgvProfesores.ReadOnly = true;
             this.dgvProfesores.Size = new System.Drawing.Size(591, 192);
             this.dgvProfesores.TabIndex = 0;
+            this.dgvProfesores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProfesores_CellContentClick);
             // 
             // cboCurso
             // 
@@ -163,6 +168,7 @@
             this.btnEditar.TabIndex = 2;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnBorrar
             // 
@@ -172,39 +178,44 @@
             this.btnBorrar.TabIndex = 3;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // IdProfesor
             // 
             this.IdProfesor.HeaderText = "IdProfesor";
             this.IdProfesor.Name = "IdProfesor";
+            this.IdProfesor.ReadOnly = true;
             this.IdProfesor.Visible = false;
             // 
-            // ApellidoNombre
+            // Profesores
             // 
-            this.ApellidoNombre.HeaderText = "Apellido,  Nombre";
-            this.ApellidoNombre.Name = "ApellidoNombre";
-            this.ApellidoNombre.Width = 150;
+            this.Profesores.HeaderText = "Profesores";
+            this.Profesores.Name = "Profesores";
+            this.Profesores.ReadOnly = true;
             // 
             // Documento
             // 
             this.Documento.HeaderText = "N° Documento";
             this.Documento.Name = "Documento";
+            this.Documento.ReadOnly = true;
             // 
             // Telefono
             // 
             this.Telefono.HeaderText = "Teléfono";
             this.Telefono.Name = "Telefono";
-            this.Telefono.Width = 96;
+            this.Telefono.ReadOnly = true;
             // 
             // Barrio
             // 
             this.Barrio.HeaderText = "Barrio";
             this.Barrio.Name = "Barrio";
+            this.Barrio.ReadOnly = true;
             // 
             // Cursos
             // 
             this.Cursos.HeaderText = "Cursos";
             this.Cursos.Name = "Cursos";
+            this.Cursos.ReadOnly = true;
             this.Cursos.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Cursos.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Cursos.Text = "Ver Cursos";
@@ -247,7 +258,7 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdProfesor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ApellidoNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Profesores;
         private System.Windows.Forms.DataGridViewTextBoxColumn Documento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn Barrio;

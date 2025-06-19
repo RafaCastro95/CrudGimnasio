@@ -11,7 +11,7 @@ namespace Grupo06_TP_Programacion1.Negocio
         //Atributos
         private Contextura contextura;
         private TipoSangre tipoSangre;
-
+        private Curso curso;
 
         //Properties
         public int IdSocio { get; set; }
@@ -25,20 +25,18 @@ namespace Grupo06_TP_Programacion1.Negocio
             get { return tipoSangre; }
             set { tipoSangre = value; }
         }
-
-        public Curso Curso { get;  set; }
-        public DateTime FechaInicio { get;  set; }
-        public DateTime FechaFin { get; set; }
-        public decimal Monto { get; set; }
+        public Curso Curso
+        {
+            get { return curso; }
+            set { curso = value; }
+        }
+       
 
         public Socio() : base()
         {
             contextura = new Contextura();
             tipoSangre = new TipoSangre();
-            Curso = new Curso();
-            FechaInicio = DateTime.Now;
-            FechaFin = DateTime.Now;
-            Monto = 0;
+            curso = new Curso();
         }
 
     }
