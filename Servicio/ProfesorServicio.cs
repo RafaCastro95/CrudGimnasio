@@ -79,5 +79,15 @@ namespace Grupo06_TP_Programacion1.Servicio
         {
             return oDao.RecuperarSocios(filtro, combo);
         }
+
+        public List<Clase> TraerClasesPorProfesor(int idProfesor)
+        {
+            return oDao.TraerClasesPorProfesor(idProfesor);
+        }
+
+        public List<Socio> TraerSociosPorClase(int idClase, int idProfesor)
+        {
+            return oDao.TraerSociosPorClase(idClase, idProfesor);
+        }
     }
 }

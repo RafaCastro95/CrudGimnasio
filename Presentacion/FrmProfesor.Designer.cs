@@ -111,6 +111,7 @@
             this.dgvProfesores.Name = "dgvProfesores";
             this.dgvProfesores.Size = new System.Drawing.Size(591, 192);
             this.dgvProfesores.TabIndex = 0;
+            this.dgvProfesores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProfesores_CellContentClick);
             // 
             // IdProfesor
             // 

@@ -51,6 +51,7 @@
     <Compile Include="Datos\AccesoDatos.cs" />
     <Compile Include="Datos\Parametro.cs" />
     <Compile Include="Negocio\Barrio.cs" />
+    <Compile Include="Negocio\Clase.cs" />
     <Compile Include="Negocio\Contextura.cs" />
     <Compile Include="Negocio\Curso.cs" />
     <Compile Include="Negocio\Genero.cs" />

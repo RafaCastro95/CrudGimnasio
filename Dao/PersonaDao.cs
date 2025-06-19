@@ -55,17 +55,17 @@ namespace Grupo06_TP_Programacion1.Dao
         {
             List<Profesor> listaProfesores = new List<Profesor>();
             string query = "SELECT P.id_profesor, nombre, apellido, documento, fecha_nacimiento, telefono, email, P.id_genero, G.genero, P.id_documento, TD.tipo, P.id_barrio, B.barrio" +
-                " FROM PROFESORES P" + 
+                " FROM PROFESORES P" +
                 " JOIN GENEROS G ON P.id_genero = G.id_genero" +
                 " JOIN TIPOS_DOCUMENTO TD ON P.id_documento = TD.id_documento" +
-                " JOIN BARRIOS B ON P.id_barrio = B.id_barrio" +
-                " JOIN CLASES C ON P.id_profesor = C.id_profesor" +
-                " JOIN TIPOS_ACTIVIDADES TA ON C.id_actividad = TA.id_actividad";
+                " JOIN BARRIOS B ON P.id_barrio = B.id_barrio"; // +
+                //" JOIN CLASES C ON P.id_profesor = C.id_profesor" +
+                //" JOIN TIPOS_ACTIVIDADES TA ON C.id_actividad = TA.id_actividad";
 
             string where = "";
             if(!string.IsNullOrEmpty(filtroNombre))
             {
-                where += $" WHERE P.nombre LIKE '%{filtroNombre}%' OR P.apellido LIKE '%{filtroNombre}%'";
+                where += $" WHERE (P.nombre LIKE '%{filtroNombre}%' OR P.apellido LIKE '%{filtroNombre}%')";
             }
 
             if(filtroClase > 0)
@@ -201,6 +201,7 @@ namespace Grupo06_TP_Programacion1.Dao
             List<Curso> listaCursos = new List<Curso>();
             String consultaSQL = "SELECT id_actividad, tipo FROM Tipos_Actividades ORDER BY 2 ASC";
             DataTable tabla = oBd.ConsultarBD(consultaSQL);
+            listaCursos.Add(new Curso { IdCurso = 0, Nombre = "Todos" });
             foreach (DataRow fila in tabla.Rows)
             {
                 Curso curso = new Curso();
@@ -335,5 +336,65 @@ namespace Grupo06_TP_Programacion1.Dao
             return listaSocios;
         }
 
+        public List<Clase> TraerClasesPorProfesor(int idProfesor)
+        {
+            List<Clase> listaClases = new List<Clase>();
+            string query = @"SELECT C.id_clase, C.precio, C.id_actividad, TA.tipo, C.id_profesor, P.nombre, P.apellido
+                            FROM CLASES C
+                            JOIN TIPOS_ACTIVIDADES TA ON C.id_actividad = TA.id_actividad
+                            JOIN PROFESORES P ON C.id_profesor = P.id_profesor
+                            WHERE C.id_profesor = " + idProfesor;
+            
+            DataTable tabla = oBd.ConsultarBD(query);
+            foreach (DataRow row in tabla.Rows)
+            {
+                Clase clase = new Clase
+                {
+                    IdClase = (int)row["id_clase"],
+                    Precio = (decimal)row["precio"],
+                    Curso = new Curso
+                    {
+                        IdCurso = (int)row["id_actividad"],
+                        Nombre = row["tipo"].ToString()
+                    },
+                    Profesor = new Profesor
+                    {
+                        IdProfesor = (int)row["id_profesor"],
+                        Nombre = row["nombre"].ToString(),
+                        Apellido = row["apellido"].ToString()
+                    }
+                };
+                listaClases.Add(clase);
+            }
+            return listaClases;
+        }
+
+        public List<Socio> TraerSociosPorClase(int idClase, int idProfesor)
+        {
+            List<Socio> listaSocios = new List<Socio>();
+            string query = $@"SELECT S.id_socio,
+                                    S.apellido,
+                                    S.nombre
+                            FROM SOCIOS S
+                            JOIN CONTRATOS C ON S.id_socio = C.id_socio
+                            JOIN CLASES CL ON C.id_clase = CL.id_clase
+                            JOIN PROFESORES P ON CL.id_profesor = P.id_profesor
+                            WHERE CL.id_profesor = {idProfesor} AND C.id_clase = {idClase}";
+
+            DataTable tabla = oBd.ConsultarBD(query);
+
+            foreach (DataRow row in tabla.Rows)
+            {
+                Socio socio = new Socio
+                {
+                    IdSocio = (int)row["id_socio"],
+                    Apellido = row["apellido"].ToString(),
+                    Nombre = row["nombre"].ToString()
+                };
+                listaSocios.Add(socio);
+            }
+
+            return listaSocios;
+        }
     }
 }

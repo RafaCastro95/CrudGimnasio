@@ -35,25 +35,9 @@ namespace Grupo06_TP_Programacion1.Presentacion
 
         private void FrmProfesor_Load(object sender, EventArgs e)
         {
-            //CargarComboBoxClases();
+            ComboBoxHelper.CargarCombo(cboCurso, oPServicio.TraerCursos(), "Nombre", "IdCurso");
+            cboCurso.SelectedIndex = 0;
         }
-
-        //private void CargarComboBoxClases()
-        //{
-        //    List<Curso> cursos = new List<Curso>()
-        //    {
-        //        new Curso() { IdCurso = 1, Nombre = "1" },
-        //        new Curso() { IdCurso = 2, Nombre = "2" },
-        //        new Curso() { IdCurso = 3, Nombre = "3" },
-        //        new Curso() { IdCurso = 4, Nombre = "4" },
-        //        new Curso() { IdCurso = 5, Nombre = "5" },
-        //        new Curso() { IdCurso = 6, Nombre = "6" }
-        //    };
-        //    cboCurso.DataSource = cursos;
-        //    cboCurso.DisplayMember = "Nombre";
-        //    cboCurso.ValueMember = "IdCurso";
-        //    cboCurso.SelectedIndex = 0;
-        //}
 
         private void CargarGridViewProfesores()
         {
@@ -75,6 +59,21 @@ namespace Grupo06_TP_Programacion1.Presentacion
         private void btnEditar_Click(object sender, EventArgs e)
         {
             Console.WriteLine(dgvProfesores.SelectedRows);
+        }
+
+        private void dgvProfesores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex == 5)
+            {
+                int idProfesor = (int)dgvProfesores.Rows[e.RowIndex].Cells[0].Value;
+                MostrarDetalleCursos(idProfesor);
+            }
+        }
+
+        private void MostrarDetalleCursos(int idProfesor)
+        {
+            FrmDetalleCursosProfesores frmDetalleCursosProfesores = new FrmDetalleCursosProfesores(idProfesor);
+            frmDetalleCursosProfesores.ShowDialog();
         }
     }
 }
