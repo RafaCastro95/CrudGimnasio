@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDetalleCurso));
             this.lblProfesor = new System.Windows.Forms.Label();
             this.dgvClases = new System.Windows.Forms.DataGridView();
             this.IdClase = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,7 +50,7 @@
             this.lblProfesor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblProfesor.Name = "lblProfesor";
             this.lblProfesor.Padding = new System.Windows.Forms.Padding(8);
-            this.lblProfesor.Size = new System.Drawing.Size(611, 40);
+            this.lblProfesor.Size = new System.Drawing.Size(525, 40);
             this.lblProfesor.TabIndex = 0;
             this.lblProfesor.Text = "Profesor/a: Apellido, Nombre";
             // 
@@ -57,19 +58,22 @@
             // 
             this.dgvClases.AllowUserToAddRows = false;
             this.dgvClases.AllowUserToDeleteRows = false;
+            this.dgvClases.AllowUserToResizeColumns = false;
+            this.dgvClases.AllowUserToResizeRows = false;
             this.dgvClases.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvClases.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvClases.BackgroundColor = System.Drawing.Color.Lavender;
             this.dgvClases.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClases.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdClase,
             this.Curso,
             this.Horario});
-            this.dgvClases.Location = new System.Drawing.Point(21, 93);
+            this.dgvClases.Location = new System.Drawing.Point(34, 99);
             this.dgvClases.Name = "dgvClases";
             this.dgvClases.ReadOnly = true;
             this.dgvClases.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClases.Size = new System.Drawing.Size(300, 200);
-            this.dgvClases.TabIndex = 1;
+            this.dgvClases.Size = new System.Drawing.Size(235, 116);
+            this.dgvClases.TabIndex = 3;
             this.dgvClases.SelectionChanged += new System.EventHandler(this.dgvClases_SelectionChanged);
             // 
             // IdClase
@@ -95,30 +99,30 @@
             // 
             this.lstSocios.FormattingEnabled = true;
             this.lstSocios.ItemHeight = 17;
-            this.lstSocios.Location = new System.Drawing.Point(353, 93);
+            this.lstSocios.Location = new System.Drawing.Point(296, 99);
             this.lstSocios.Name = "lstSocios";
-            this.lstSocios.Size = new System.Drawing.Size(235, 208);
-            this.lstSocios.TabIndex = 2;
+            this.lstSocios.Size = new System.Drawing.Size(191, 174);
+            this.lstSocios.TabIndex = 4;
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.CausesValidation = false;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(347, 49);
+            this.lblTitulo.Location = new System.Drawing.Point(291, 55);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(167, 30);
-            this.lblTitulo.TabIndex = 3;
+            this.lblTitulo.TabIndex = 2;
             this.lblTitulo.Text = "Socios Inscriptos";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnVolver
             // 
             this.btnVolver.BackColor = System.Drawing.SystemColors.Control;
-            this.btnVolver.Location = new System.Drawing.Point(300, 370);
+            this.btnVolver.Location = new System.Drawing.Point(245, 303);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(75, 23);
-            this.btnVolver.TabIndex = 4;
+            this.btnVolver.TabIndex = 5;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
@@ -128,10 +132,10 @@
             this.lblHorario.AutoSize = true;
             this.lblHorario.CausesValidation = false;
             this.lblHorario.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHorario.Location = new System.Drawing.Point(30, 49);
+            this.lblHorario.Location = new System.Drawing.Point(43, 55);
             this.lblHorario.Name = "lblHorario";
             this.lblHorario.Size = new System.Drawing.Size(91, 30);
-            this.lblHorario.TabIndex = 5;
+            this.lblHorario.TabIndex = 1;
             this.lblHorario.Text = "Horarios";
             this.lblHorario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -139,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(611, 411);
+            this.ClientSize = new System.Drawing.Size(525, 341);
             this.Controls.Add(this.lblHorario);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.lblTitulo);
@@ -147,6 +151,7 @@
             this.Controls.Add(this.dgvClases);
             this.Controls.Add(this.lblProfesor);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmDetalleCurso";
             this.Text = "Detalle Curso";

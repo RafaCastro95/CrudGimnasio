@@ -47,7 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComboBoxHelper.cs" />
+    <Compile Include="Dao\ConsultaDao.cs" />
     <Compile Include="Dao\PersonaDao.cs" />
+    <Compile Include="Dao\ProfesorDao.cs" />
+    <Compile Include="Dao\SocioDao.cs" />
     <Compile Include="Datos\AccesoDatos.cs" />
     <Compile Include="Datos\Parametro.cs" />
     <Compile Include="Negocio\Barrio.cs" />
@@ -107,7 +110,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicio\ConsultaServicio.cs" />
+    <Compile Include="Servicio\PersonaServicio.cs" />
     <Compile Include="Servicio\ProfesorServicio.cs" />
+    <Compile Include="Servicio\SocioServicio.cs" />
     <EmbeddedResource Include="Presentacion\FrmConsultas.resx">
       <DependentUpon>FrmConsultas.cs</DependentUpon>
     </EmbeddedResource>

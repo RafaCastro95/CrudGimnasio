@@ -56,7 +56,7 @@
             this.btnEditar.Location = new System.Drawing.Point(204, 405);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 2;
+            this.btnEditar.TabIndex = 7;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -67,7 +67,7 @@
             this.cboCursos.Location = new System.Drawing.Point(94, 105);
             this.cboCursos.Name = "cboCursos";
             this.cboCursos.Size = new System.Drawing.Size(296, 21);
-            this.cboCursos.TabIndex = 3;
+            this.cboCursos.TabIndex = 4;
             // 
             // lbl
             // 
@@ -75,7 +75,7 @@
             this.lbl.Location = new System.Drawing.Point(29, 105);
             this.lbl.Name = "lbl";
             this.lbl.Size = new System.Drawing.Size(39, 13);
-            this.lbl.TabIndex = 2;
+            this.lbl.TabIndex = 3;
             this.lbl.Text = "Cursos";
             // 
             // txtNombreSocio
@@ -83,7 +83,7 @@
             this.txtNombreSocio.Location = new System.Drawing.Point(94, 66);
             this.txtNombreSocio.Name = "txtNombreSocio";
             this.txtNombreSocio.Size = new System.Drawing.Size(348, 20);
-            this.txtNombreSocio.TabIndex = 1;
+            this.txtNombreSocio.TabIndex = 2;
             // 
             // lblNombre
             // 
@@ -91,7 +91,7 @@
             this.lblNombre.Location = new System.Drawing.Point(29, 66);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
-            this.lblNombre.TabIndex = 0;
+            this.lblNombre.TabIndex = 1;
             this.lblNombre.Text = "Nombre";
             // 
             // btnSocios
@@ -101,10 +101,10 @@
             this.btnSocios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSocios.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSocios.ForeColor = System.Drawing.Color.Black;
-            this.btnSocios.Location = new System.Drawing.Point(16, 75);
+            this.btnSocios.Location = new System.Drawing.Point(10, 75);
             this.btnSocios.Name = "btnSocios";
             this.btnSocios.Size = new System.Drawing.Size(128, 33);
-            this.btnSocios.TabIndex = 4;
+            this.btnSocios.TabIndex = 0;
             this.btnSocios.Text = "Ver Socios";
             this.btnSocios.UseVisualStyleBackColor = false;
             this.btnSocios.Click += new System.EventHandler(this.btnConsultar_Click);
@@ -117,14 +117,13 @@
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnNuevo
             // 
             this.btnNuevo.Location = new System.Drawing.Point(77, 405);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 1;
+            this.btnNuevo.TabIndex = 6;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -135,10 +134,10 @@
             this.panel1.Controls.Add(this.btnVolver);
             this.panel1.Controls.Add(this.btnSocios);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(561, 0);
+            this.panel1.Location = new System.Drawing.Point(531, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(156, 450);
-            this.panel1.TabIndex = 5;
+            this.panel1.Size = new System.Drawing.Size(151, 450);
+            this.panel1.TabIndex = 9;
             // 
             // btnVolver
             // 
@@ -147,10 +146,10 @@
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolver.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolver.ForeColor = System.Drawing.Color.Black;
-            this.btnVolver.Location = new System.Drawing.Point(16, 393);
+            this.btnVolver.Location = new System.Drawing.Point(10, 393);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(128, 35);
-            this.btnVolver.TabIndex = 5;
+            this.btnVolver.Size = new System.Drawing.Size(128, 33);
+            this.btnVolver.TabIndex = 1;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
@@ -162,7 +161,7 @@
             this.lblTitulo.Location = new System.Drawing.Point(12, 9);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(98, 40);
-            this.lblTitulo.TabIndex = 6;
+            this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Socios";
             // 
             // btnEliminar
@@ -179,6 +178,8 @@
             // 
             this.dgvSocios.AllowUserToAddRows = false;
             this.dgvSocios.AllowUserToDeleteRows = false;
+            this.dgvSocios.AllowUserToResizeColumns = false;
+            this.dgvSocios.AllowUserToResizeRows = false;
             this.dgvSocios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSocios.BackgroundColor = System.Drawing.Color.Lavender;
             this.dgvSocios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -192,7 +193,7 @@
             this.dgvSocios.Name = "dgvSocios";
             this.dgvSocios.ReadOnly = true;
             this.dgvSocios.Size = new System.Drawing.Size(493, 238);
-            this.dgvSocios.TabIndex = 9;
+            this.dgvSocios.TabIndex = 5;
             // 
             // IdSocio
             // 
@@ -229,7 +230,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(717, 450);
+            this.ClientSize = new System.Drawing.Size(682, 450);
             this.Controls.Add(this.dgvSocios);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.cboCursos);

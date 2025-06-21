@@ -18,6 +18,8 @@ namespace Grupo06_TP_Programacion1.Negocio
         protected  string email;
         protected  string telefono;
         protected  Barrio barrio;
+        protected int activo;
+        private Curso curso;
 
         // Properties
         public string Apellido
@@ -65,6 +67,16 @@ namespace Grupo06_TP_Programacion1.Negocio
             get { return barrio; }
             set { barrio = value; }
         }
+        public int Activo
+        {
+            get { return activo; }
+            set { activo = value; }
+        }
+        public Curso Curso
+        {
+            get { return curso; }
+            set { curso = value; }
+        }
 
         public Persona()
         {
@@ -77,6 +89,8 @@ namespace Grupo06_TP_Programacion1.Negocio
             email = string.Empty;
             telefono = string.Empty;
             barrio = new Barrio();
+            activo = 1;
+            curso = new Curso();
         }
     }
 }

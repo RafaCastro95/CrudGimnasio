@@ -15,6 +15,6 @@ namespace Grupo06_TP_Programacion1.Negocio
 
         public Profesor Profesor { get; set; }
 
-        public Horario Horario { get; set; } // Agregado para asociar el horario a la clase
+        public Horario Horario { get; set; } 
     }
 }

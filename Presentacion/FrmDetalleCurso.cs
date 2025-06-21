@@ -26,6 +26,7 @@ namespace Grupo06_TP_Programacion1.Presentacion
 
         private void FrmDetalleCurso_Load(object sender, EventArgs e)
         {
+            dgvClases.RowHeadersVisible = false;
             Profesor profesor = oPServicio.RecuperarProfesorPorID(idProfesor);
             lblProfesor.Text = $"Profesor/a: {profesor.Apellido}, {profesor.Nombre}";
 
@@ -36,6 +37,7 @@ namespace Grupo06_TP_Programacion1.Presentacion
                 string horario = $"{clase.Horario.HoraInicio.ToString(@"hh\:mm")} A {clase.Horario.HoraFin.ToString(@"hh\:mm")}";
                 dgvClases.Rows.Add(clase.IdClase, clase.Curso.Nombre, horario);
             }
+            dgvClases.ClearSelection();
         }
 
         private void dgvClases_SelectionChanged(object sender, EventArgs e)

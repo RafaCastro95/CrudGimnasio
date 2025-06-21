@@ -15,27 +15,33 @@ namespace Grupo06_TP_Programacion1.Presentacion
 {
     public partial class FrmSocio : Form
     {
-        ProfesorServicio oPServicio;
+        private FrmInicio _frmInicio;
+        PersonaServicio oPersonaServicio;
+        SocioServicio oSServicio;
         public FrmSocio()
         {
             InitializeComponent();
-            oPServicio = new ProfesorServicio();
+            oSServicio = new SocioServicio();
+            oPersonaServicio = new PersonaServicio();
+        }
+        public FrmSocio(FrmInicio frmInicio)
+        {
+            InitializeComponent();
+            _frmInicio = frmInicio;
+            oSServicio = new SocioServicio();
+            oPersonaServicio = new PersonaServicio();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            FrmDetalleSocio fds = new FrmDetalleSocio();
+            FrmDetalleSocio fds = new FrmDetalleSocio(this);
+            this.Hide();
             fds.ShowDialog();
         }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Dispose();
-        }
-
         private void FrmSocio_Load(object sender, EventArgs e)
         {
-            ComboBoxHelper.CargarCombo(cboCursos, oPServicio.TraerCursos(), "Nombre", "IdCurso", true);
+            dgvSocios.RowHeadersVisible = false;
+            ComboBoxHelper.CargarCombo(cboCursos, oPersonaServicio.TraerCursos(), "Nombre", "IdCurso", true);
             dgvSocios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvSocios.MultiSelect = false;
             dgvSocios.CellClick += dgvSocios_CellClick;
@@ -58,7 +64,7 @@ namespace Grupo06_TP_Programacion1.Presentacion
         {
             string filtro = txtNombreSocio.Text;
             int valor = Convert.ToInt32(cboCursos.SelectedValue);
-            List<Socio> lista = oPServicio.TraerSocios(filtro, valor);
+            List<Socio> lista = oSServicio.TraerSocios(filtro, valor);
 
             dgvSocios.Rows.Clear();
 
@@ -67,6 +73,7 @@ namespace Grupo06_TP_Programacion1.Presentacion
                 string nombreCompleto = socio.Apellido + ", " + socio.Nombre;
                 dgvSocios.Rows.Add(socio.IdSocio, nombreCompleto, socio.Documento, socio.FechaNacimiento.ToString("dd/MM/yyyy"), socio.Barrio.Descripcion);
             }
+            dgvSocios.ClearSelection();
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
@@ -83,7 +90,7 @@ namespace Grupo06_TP_Programacion1.Presentacion
 
                 if (resultado == DialogResult.Yes)
                 {
-                    oPServicio.EliminarSocio(id_socio);
+                    oSServicio.EliminarSocio(id_socio);
                     CargarGrilla();
                 }
             }
@@ -97,38 +104,53 @@ namespace Grupo06_TP_Programacion1.Presentacion
         {
             if (dgvSocios.CurrentRow != null)
             {
-                //int id_socio = Convert.ToInt32(dgvSocios.CurrentRow.Cells["IdSocio"].Value); // Correctly retrieve the ID of the selected socio
-                string documento = dgvSocios.CurrentRow.Cells["Documento"].Value.ToString(); // Convert the cell value to string
+               
+                string documento = dgvSocios.CurrentRow.Cells["Documento"].Value.ToString(); 
 
-                FrmDetalleSocio fds = new FrmDetalleSocio(Modo.Editar, documento);
+                FrmDetalleSocio fds = new FrmDetalleSocio(this, Modo.Editar, documento);
+                this.Hide();
                 fds.ShowDialog();
                 CargarGrilla();
             }
             else
             {
-                MessageBox.Show("Seleccioná un socio primero.");
+                MessageBox.Show("Seleccioná un socio primero.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             Console.WriteLine(dgvSocios.SelectedRows);
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgvSocios.SelectedRows.Count > 0)
+            if (dgvSocios.Rows.Count == 0 || dgvSocios.SelectedRows.Count == 0)
             {
-                int id_socio = Convert.ToInt32(dgvSocios.SelectedRows[0].Cells["IdSocio"].Value);
-                // Llama a un método que haga: UPDATE Socios SET Activo = 0 WHERE id_socio = @id_socio
-                oPServicio.EliminarSocio(id_socio); // Modifica este método para hacer el update, no el delete
-                CargarGrilla();
+                MessageBox.Show("Seleccioná un socio primero.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else
+
+            var cellValue = dgvSocios.SelectedRows[0].Cells["IdSocio"].Value;
+            if (cellValue == null || !int.TryParse(cellValue.ToString(), out int id_socio))
             {
-                MessageBox.Show("No hay ninguna fila seleccionada.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No se pudo obtener el ID del socio seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DialogResult resultado = MessageBox.Show(
+                "¿Estás seguro que querés eliminar este Socio?",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (resultado == DialogResult.Yes)
+            {
+                oSServicio.EliminarSocio(id_socio);
+                CargarGrilla();
             }
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            Dispose();
+            this.Close();
+            _frmInicio.Show();
         }
     }
 }

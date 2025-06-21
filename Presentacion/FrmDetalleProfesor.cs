@@ -23,35 +23,42 @@ namespace Grupo06_TP_Programacion1.Presentacion
     }
     public partial class FrmDetalleProfesor : Form
     {
+        private FrmProfesor _frmProfesor;
+        PersonaServicio oPersonaServicio;
         ProfesorServicio oPServicio;
         int idProfesor;
         Modo accion;
         AccesoDatos AccesoDatos = new AccesoDatos();
         Profesor profesor = new Profesor();
-        public FrmDetalleProfesor(Modo accion)
+        public FrmDetalleProfesor(FrmProfesor frmProfesor ,Modo accion)
         {
             InitializeComponent();
             oPServicio = new ProfesorServicio();
+            oPersonaServicio = new PersonaServicio();
             this.accion = accion;
+            _frmProfesor = frmProfesor;
         }
-        public FrmDetalleProfesor(Modo accion, int idProfesor)
+        public FrmDetalleProfesor(FrmProfesor frmProfesor, Modo accion, int idProfesor)
         {
             InitializeComponent();
             this.accion = accion;
             this.idProfesor = idProfesor;
             oPServicio = new ProfesorServicio();
+            oPersonaServicio = new PersonaServicio();
             txtDocumento.Enabled = false;
+            _frmProfesor = frmProfesor;
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Dispose();
+            this.Close();
+            _frmProfesor.Show();
         }
 
         private void FrmDetalleProfesor_Load(object sender, EventArgs e)
         {
-            ComboBoxHelper.CargarCombo(cboTipoDocumento, oPServicio.TraerTiposDocumentos(), "Descripcion", "IdTipo", false);
-            ComboBoxHelper.CargarCombo(cboGenero, oPServicio.TraerGeneros(), "Descripcion", "IdGenero", false);
-            ComboBoxHelper.CargarCombo(cboProvincia, oPServicio.TraerProvincias(), "Descripcion", "IdProvincia", true);
+            ComboBoxHelper.CargarCombo(cboTipoDocumento, oPersonaServicio.TraerTiposDocumentos(), "Descripcion", "IdTipo", false);
+            ComboBoxHelper.CargarCombo(cboGenero, oPersonaServicio.TraerGeneros(), "Descripcion", "IdGenero", false);
+            ComboBoxHelper.CargarCombo(cboProvincia, oPersonaServicio.TraerProvincias(), "Descripcion", "IdProvincia", true);
             if (accion != Modo.Nuevo)
             {
                 CargarProfesor(idProfesor);
@@ -63,7 +70,7 @@ namespace Grupo06_TP_Programacion1.Presentacion
             {
                 if (int.TryParse(cboProvincia.SelectedValue.ToString(), out int idProvincia))
                 {
-                    ComboBoxHelper.CargarCombo(cboLocalidad, oPServicio.TraerLocalidades(idProvincia), "Descripcion", "IdLocalidad", true);
+                    ComboBoxHelper.CargarCombo(cboLocalidad, oPersonaServicio.TraerLocalidades(idProvincia), "Descripcion", "IdLocalidad", true);
                 }
             }
         }
@@ -76,7 +83,7 @@ namespace Grupo06_TP_Programacion1.Presentacion
                 {
                     if (int.TryParse(cboLocalidad.SelectedValue.ToString(), out int idLocalidad))
                     {
-                        ComboBoxHelper.CargarCombo(cboBarrio, oPServicio.TraerBarrios(idLocalidad), "Descripcion", "IdBarrio", true);
+                        ComboBoxHelper.CargarCombo(cboBarrio, oPersonaServicio.TraerBarrios(idLocalidad), "Descripcion", "IdBarrio", true);
                     }
                 }
             }
@@ -103,40 +110,46 @@ namespace Grupo06_TP_Programacion1.Presentacion
             if (!int.TryParse(txtDocumento.Text, out _))
             {
                 MessageBox.Show("Complete con numero el campo Documento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDocumento.Focus();
                 return false;
             }
 
             if (string.IsNullOrEmpty(txtApellido.Text))
             {
                 MessageBox.Show("Complete con letras el campo Apellido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtApellido.Focus();
                 return false;
             }
             if (string.IsNullOrEmpty(txtNombre.Text))
             {
                 MessageBox.Show("Complete con letras el campo Nombre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               txtNombre.Focus();
                 return false;
             }
             if (cboTipoDocumento.SelectedItem == null)
             {
                 MessageBox.Show("Complete con una opcion el campo Tipo Documento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cboTipoDocumento.Focus();
                 return false;
             }
-            if (cboProvincia.SelectedItem == null)
+            if (cboProvincia.SelectedIndex <= 0)
             {
-                MessageBox.Show("Complete con una opcion el campo Provincia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                if (cboLocalidad.SelectedItem == null)
-                {
-                    MessageBox.Show("Complete con una opcion el campo Localidad", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    if (cboBarrio.SelectedItem == null)
-                    {
-                        MessageBox.Show("Complete con una opcion el campo Barrio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;
-                    }
-                    return false;
-                }
+                MessageBox.Show("Complete con una opción el campo Provincia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cboProvincia.Focus();
                 return false;
             }
-
+            if (cboLocalidad.SelectedIndex <= 0)
+            {
+                MessageBox.Show("Complete con una opción el campo Localidad", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cboLocalidad.Focus();
+                return false;
+            }
+            if (cboBarrio.SelectedIndex <= 0)
+            {
+                MessageBox.Show("Complete con una opción el campo Barrio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cboBarrio.Focus();
+                return false;
+            }
             return true;
         }
 
@@ -160,11 +173,12 @@ namespace Grupo06_TP_Programacion1.Presentacion
             if (oPServicio.GuardarProfesor(oProfesor) > 0)
             {
                 MessageBox.Show("Profesor guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Dispose();
+                this.Close();
+                _frmProfesor.Show();
             }
             else
             {
-                MessageBox.Show("Error al guardar el profesor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al guardar el profesor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -191,7 +205,8 @@ namespace Grupo06_TP_Programacion1.Presentacion
             else
             {
                 MessageBox.Show("Profesor actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Dispose();
+                this.Close();
+                _frmProfesor.Show();
             }
         }
 
@@ -223,8 +238,9 @@ namespace Grupo06_TP_Programacion1.Presentacion
                 {
                     IdBarrio = Convert.ToInt32(row[9])
                 };
-                pk_Provincias = Convert.ToInt32(row[10]);
-                pk_Localidades = Convert.ToInt32(row[11]);
+                profesor.Activo = Convert.ToInt32(row[10]);
+                pk_Provincias = Convert.ToInt32(row[11]);
+                pk_Localidades = Convert.ToInt32(row[12]);
             }
             // Cargar los datos en los controles del formulario
             txtNombre.Text = profesor.Nombre;

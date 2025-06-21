@@ -11,9 +11,10 @@ namespace Grupo06_TP_Programacion1.Negocio
         //Atributos
         private Contextura contextura;
         private TipoSangre tipoSangre;
-        private Curso curso;
+        
 
         //Properties
+       
         public int IdSocio { get; set; }
         public Contextura Contextura
         {
@@ -25,18 +26,10 @@ namespace Grupo06_TP_Programacion1.Negocio
             get { return tipoSangre; }
             set { tipoSangre = value; }
         }
-        public Curso Curso
-        {
-            get { return curso; }
-            set { curso = value; }
-        }
-       
-
         public Socio() : base()
         {
             contextura = new Contextura();
             tipoSangre = new TipoSangre();
-            curso = new Curso();
         }
 
     }

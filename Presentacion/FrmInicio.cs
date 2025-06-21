@@ -25,19 +25,22 @@ namespace Grupo06_TP_Programacion1
 
         private void BtnSocios_Click(object sender, EventArgs e)
         {
-            FrmSocio fs = new FrmSocio();
-            fs.ShowDialog();
+            FrmSocio fs = new FrmSocio(this);
+            this.Hide();
+            fs.Show();
         }
 
         private void BtnProfesores_Click(object sender, EventArgs e)
         {
-            FrmProfesor fp = new FrmProfesor();
+            FrmProfesor fp = new FrmProfesor(this);
+            this.Hide();
             fp.ShowDialog();
         }
 
         private void BtnConsultas_Click(object sender, EventArgs e)
         {
-            FrmConsultas fc = new FrmConsultas();
+            FrmConsultas fc = new FrmConsultas(this);
+            this.Hide();
             fc.ShowDialog();
         }
     }

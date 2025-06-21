@@ -14,28 +14,34 @@ namespace Grupo06_TP_Programacion1.Presentacion
 {
     public partial class FrmProfesor : Form
     {
-
+        private FrmInicio _frmInicio;
+        PersonaServicio oPersonaServicio;
         ProfesorServicio oPServicio;
         public FrmProfesor()
         {
             InitializeComponent();
             oPServicio = new ProfesorServicio();
+            oPersonaServicio = new PersonaServicio();
+        }
+        public FrmProfesor(FrmInicio frmInicio)
+        {
+            InitializeComponent();
+            _frmInicio = frmInicio;
+            oPServicio = new ProfesorServicio();
+            oPersonaServicio = new PersonaServicio();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            FrmDetalleProfesor fdp = new FrmDetalleProfesor(Modo.Nuevo);
+            FrmDetalleProfesor fdp = new FrmDetalleProfesor(this, Modo.Nuevo);
+            this.Hide();
             fdp.ShowDialog();
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Dispose();
         }
 
         private void FrmProfesor_Load(object sender, EventArgs e)
         {
-            ComboBoxHelper.CargarCombo(cboCurso, oPServicio.TraerCursos(), "Nombre", "IdCurso", true);
+            dgvProfesores.RowHeadersVisible = false;
+            ComboBoxHelper.CargarCombo(cboCurso, oPersonaServicio.TraerCursos(), "Nombre", "IdCurso", true);
             cboCurso.SelectedIndex = 0;
         }
 
@@ -49,12 +55,8 @@ namespace Grupo06_TP_Programacion1.Presentacion
                 int pos = dgvProfesores.Rows.Add(p.IdProfesor, $"{p.Apellido}, {p.Nombre}", p.Documento, p.Telefono, p.Barrio.Descripcion);
                 dgvProfesores.Rows[pos].Tag = p.IdProfesor;
             }
+            dgvProfesores.ClearSelection();
             int idProfesor = Convert.ToInt32(dgvProfesores.CurrentRow.Cells["IdProfesor"].Value);
-        }
-
-        private void btnConsultar_Click(object sender, EventArgs e)
-        {
-            CargarGridViewProfesores();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -62,12 +64,14 @@ namespace Grupo06_TP_Programacion1.Presentacion
             if (dgvProfesores.CurrentRow != null)
             {
                 int idProfesor = Convert.ToInt32(dgvProfesores.CurrentRow.Cells["IdProfesor"].Value);
-                FrmDetalleProfesor fdp = new FrmDetalleProfesor(Modo.Editar, idProfesor);
+                FrmDetalleProfesor fdp = new FrmDetalleProfesor(this, Modo.Editar, idProfesor);
+                this.Hide();
                 fdp.ShowDialog();
+                CargarGridViewProfesores();
             }
             else
             {
-                MessageBox.Show("No hay ninguna fila seleccionada.");
+                MessageBox.Show("Seleccioná un profesor primero.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             Console.WriteLine(dgvProfesores.SelectedRows);
         }
@@ -89,26 +93,41 @@ namespace Grupo06_TP_Programacion1.Presentacion
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            if(dgvProfesores.CurrentRow != null)
- {
-                int id_profesor = Convert.ToInt32(dgvProfesores.CurrentRow.Cells["IdProfesor"].Value); // usa el nombre real de la columna
-
-                DialogResult resultado = MessageBox.Show(
-                    "¿Estás seguro que querés eliminar este Profesor?",
-                    "Confirmar eliminación",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning);
-
-                if (resultado == DialogResult.Yes)
-                {
-                    oPServicio.ElimianarProfesor(id_profesor);
-                    CargarGridViewProfesores();
-                }
-            }
-            else
+            if (dgvProfesores.Rows.Count == 0 || dgvProfesores.CurrentRow == null)
             {
-                MessageBox.Show("Seleccioná un profesor primero.");
+                MessageBox.Show("Seleccioná un profesor primero.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
+
+            var cellValue = dgvProfesores.CurrentRow.Cells["IdProfesor"].Value;
+            if (cellValue == null || !int.TryParse(cellValue.ToString(), out int id_profesor))
+            {
+                MessageBox.Show("No se pudo obtener el ID del profesor seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DialogResult resultado = MessageBox.Show(
+                "¿Estás seguro que querés eliminar este Profesor?",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (resultado == DialogResult.Yes)
+            {
+                oPServicio.ElimianarProfesor(id_profesor); 
+                CargarGridViewProfesores();
+            }
+        }
+
+        private void btnConsultar_Click_1(object sender, EventArgs e)
+        {
+            CargarGridViewProfesores();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            _frmInicio.Show();
         }
     }
 }

@@ -38,7 +38,7 @@
             // 
             // BtnSocios
             // 
-            this.BtnSocios.Location = new System.Drawing.Point(125, 511);
+            this.BtnSocios.Location = new System.Drawing.Point(101, 371);
             this.BtnSocios.Name = "BtnSocios";
             this.BtnSocios.Size = new System.Drawing.Size(88, 72);
             this.BtnSocios.TabIndex = 1;
@@ -48,9 +48,9 @@
             // 
             // BtnProfesores
             // 
-            this.BtnProfesores.Location = new System.Drawing.Point(341, 494);
+            this.BtnProfesores.Location = new System.Drawing.Point(286, 364);
             this.BtnProfesores.Name = "BtnProfesores";
-            this.BtnProfesores.Size = new System.Drawing.Size(136, 92);
+            this.BtnProfesores.Size = new System.Drawing.Size(113, 79);
             this.BtnProfesores.TabIndex = 2;
             this.BtnProfesores.Text = "Profesores";
             this.BtnProfesores.UseVisualStyleBackColor = true;
@@ -58,9 +58,9 @@
             // 
             // BtnConsultas
             // 
-            this.BtnConsultas.Location = new System.Drawing.Point(573, 494);
+            this.BtnConsultas.Location = new System.Drawing.Point(475, 370);
             this.BtnConsultas.Name = "BtnConsultas";
-            this.BtnConsultas.Size = new System.Drawing.Size(135, 89);
+            this.BtnConsultas.Size = new System.Drawing.Size(126, 74);
             this.BtnConsultas.TabIndex = 3;
             this.BtnConsultas.Text = "Consultas";
             this.BtnConsultas.UseVisualStyleBackColor = true;
@@ -72,7 +72,7 @@
             this.PbxGym.Image = global::Grupo06_TP_Programacion1.Properties.Resources.Gym_final;
             this.PbxGym.Location = new System.Drawing.Point(0, 0);
             this.PbxGym.Name = "PbxGym";
-            this.PbxGym.Size = new System.Drawing.Size(821, 588);
+            this.PbxGym.Size = new System.Drawing.Size(682, 450);
             this.PbxGym.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PbxGym.TabIndex = 0;
             this.PbxGym.TabStop = false;
@@ -81,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 588);
+            this.ClientSize = new System.Drawing.Size(682, 450);
             this.Controls.Add(this.PbxGym);
             this.Controls.Add(this.BtnSocios);
             this.Controls.Add(this.BtnProfesores);

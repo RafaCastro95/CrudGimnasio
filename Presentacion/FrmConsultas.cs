@@ -13,46 +13,65 @@ namespace Grupo06_TP_Programacion1.Presentacion
 {
     public partial class FrmConsultas : Form
     {
-        ProfesorServicio oPServicio;
+        private FrmInicio _frmInicio;
+        ConsultaServicio oCServicio;
         public FrmConsultas()
         {
             InitializeComponent();
-            oPServicio = new ProfesorServicio();
+            oCServicio = new ConsultaServicio();
+        }
+        public FrmConsultas(FrmInicio frmInicio)
+        {
+            InitializeComponent();
+            _frmInicio = frmInicio;
+            oCServicio = new ConsultaServicio();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Dispose();
+            this.Close();
+            _frmInicio.Show();
         }
 
         private void FrmConsultas_Load(object sender, EventArgs e)
         {
             cboConsulta.SelectedIndex = -1;
             cboConsulta.DropDownStyle = ComboBoxStyle.DropDownList;
-            
+            dgvConsultas.RowHeadersVisible = false;
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            if (cboConsulta.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor, seleccione una consulta.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             switch (cboConsulta.SelectedIndex)
             {
                 case 0:
-                    dgvConsultas.DataSource = oPServicio.Resultado1();
+                    dgvConsultas.DataSource = oCServicio.Resultado1();
+                    dgvConsultas.ClearSelection();
                     break;
                 case 1:
-                    dgvConsultas.DataSource = oPServicio.Resultado2();
+                    dgvConsultas.DataSource = oCServicio.Resultado2();
+                    dgvConsultas.ClearSelection();
                     break;
                 case 2:
-                    dgvConsultas.DataSource = oPServicio.Resultado3();
+                    dgvConsultas.DataSource = oCServicio.Resultado3();
+                    dgvConsultas.ClearSelection();
                     break;
                 case 3:
-                    dgvConsultas.DataSource = oPServicio.Resultado4();
+                    dgvConsultas.DataSource = oCServicio.Resultado4();
+                    dgvConsultas.ClearSelection();
                     break;
                 case 4:
-                    dgvConsultas.DataSource = oPServicio.Resultado5();
+                    dgvConsultas.DataSource = oCServicio.Resultado5();
+                    dgvConsultas.ClearSelection();
                     break;
                 case 5:
-                    dgvConsultas.DataSource = oPServicio.Resultado6();
+                    dgvConsultas.DataSource = oCServicio.Resultado6();
+                    dgvConsultas.ClearSelection();
                     break;
             }
         }
