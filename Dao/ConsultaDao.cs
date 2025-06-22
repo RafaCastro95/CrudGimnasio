@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Grupo06_TP_Programacion1.Dao
 {
-    public class ConsultaDao
+    internal class ConsultaDao
     {
         AccesoDatos oBdC;
         public ConsultaDao()
@@ -20,7 +20,7 @@ namespace Grupo06_TP_Programacion1.Dao
         // Formulario Consultas
         // 
         //PRIMERA CONSULTA
-        public DataTable Consulta1()
+        internal DataTable Consulta1()
         {
             string consulta = @"SELECT 
                                     S.apellido + SPACE(2) + S.nombre AS 'SOCIOS', 
@@ -48,7 +48,7 @@ namespace Grupo06_TP_Programacion1.Dao
 
 
         //SEGUNDA CONSULTA
-        public DataTable Consulta2()
+        internal DataTable Consulta2()
         {
             string consulta = @"SELECT PR.provincia AS PROVINCIAS, 
                                        COUNT(DISTINCT S.id_socio) AS ""CANTIDAD DE SOCIOS"", 
@@ -68,7 +68,7 @@ namespace Grupo06_TP_Programacion1.Dao
 
 
         //TERCERA CONSULTA
-        public DataTable Consulta3()
+        internal DataTable Consulta3()
         {
             string consulta = @"SELECT
                                       s.nombre + ' ' + s.apellido AS SOCIOS,
@@ -104,7 +104,7 @@ namespace Grupo06_TP_Programacion1.Dao
         }
 
         //CUARTA CONSULTA
-        public DataTable Consulta4()
+        internal DataTable Consulta4()
         {
             string consulta = @"SELECT
                                     S.nombre + ' ' + S.apellido as 'SOCIO', 
@@ -127,7 +127,7 @@ namespace Grupo06_TP_Programacion1.Dao
         }
 
         //QUINTA CONSULTA
-        public DataTable Consulta5()
+        internal DataTable Consulta5()
         {
             string consulta = @"SELECT DISTINCT S.nombre + SPACE(2)+ S.apellido AS 'SOCIO', S.documento AS 'DOCUMENTO',
                                 TA.tipo AS 'ACTIVIDAD', P.mes AS 'MES',  FORMAT(CL.precio, 'C', 'es-AR') AS 'PRECIO', H.frecuencia_semanal AS 
@@ -148,7 +148,7 @@ namespace Grupo06_TP_Programacion1.Dao
         }
 
         //SEXTA CONSULTA
-        public DataTable Consulta6()
+        internal DataTable Consulta6()
         {
             string consulta = @"SELECT trim(S.nombre) + space(1) + trim(S.apellido) 'SOCIOS', 
                                         S.telefono 'Telefono', 

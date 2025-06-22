@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Grupo06_TP_Programacion1.Dao
 {
-    public class SocioDao
+    internal class SocioDao
     {
         AccesoDatos oBdS;
         public SocioDao()
@@ -19,7 +19,7 @@ namespace Grupo06_TP_Programacion1.Dao
         }
 
         //Insertar Socio
-        public int InsertarSocio(Socio socio)
+        internal int InsertarSocio(Socio socio)
         {
             int filasAfectadas = 0;
             string consultaSQL = @"INSERT INTO Socios (nombre, apellido, documento, 
@@ -46,7 +46,7 @@ namespace Grupo06_TP_Programacion1.Dao
         }
 
         // Recuperar Socios desde la BD con nombre completo concatenado
-        public List<Socio> RecuperarSocios(string filtro, int valor)
+        internal List<Socio> RecuperarSocios(string filtro, int valor)
         {
             List<Socio> listaSocios = new List<Socio>();
 
@@ -94,7 +94,7 @@ namespace Grupo06_TP_Programacion1.Dao
 
             return listaSocios;
         }
-        public int EliminarSocio(int id_socio)
+        internal int EliminarSocio(int id_socio)
         {
             // Soft delete: marcar el socio como inactivo
             string query = $"UPDATE Socios SET Activo = 0 WHERE id_socio = {id_socio}";
@@ -104,7 +104,7 @@ namespace Grupo06_TP_Programacion1.Dao
 
 
         //Metodo para recuperar Socio por Documento
-        public DataTable RecuperarSocioPorDocumento(string Documento)
+        internal DataTable RecuperarSocioPorDocumento(string Documento)
         {
             string consulta = $@"SELECT S.*, L.id_localidad, P.id_provincia FROM SOCIOS S 
                                 JOIN BARRIOS B ON S.id_barrio = B.id_barrio 
@@ -117,7 +117,7 @@ namespace Grupo06_TP_Programacion1.Dao
 
 
         // Metodo para editar Socio
-        public int EditarSocio(string documento, Socio socio)
+        internal int EditarSocio(string documento, Socio socio)
         {
             int filasAfectadas = 0;
             string consultaSQL = @"UPDATE Socios SET nombre = @Nombre, 

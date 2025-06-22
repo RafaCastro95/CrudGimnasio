@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 
 namespace Grupo06_TP_Programacion1.Dao
 {
-    public class ProfesorDao
+    internal class ProfesorDao
     {
         AccesoDatos oBdP;
         public ProfesorDao()
         {
             oBdP = new AccesoDatos();
         }
-        public List<Profesor> RecuperarProfesores(string filtroNombre, int filtroClase, int idProfesor)
+        internal List<Profesor> RecuperarProfesores(string filtroNombre, int filtroClase, int idProfesor)
         {
             List<Profesor> listaProfesores = new List<Profesor>();
             string query = @"SELECT DISTINCT P.id_profesor, P.nombre, P.apellido, P.documento, P.fecha_nacimiento, 
@@ -63,14 +63,14 @@ namespace Grupo06_TP_Programacion1.Dao
             return listaProfesores;
         }
 
-        public Profesor RecuperarProfesorPorID(int idProfesor)
+        internal Profesor RecuperarProfesorPorID(int idProfesor)
         {
             List<Profesor> profesores = RecuperarProfesores("", 0, idProfesor);
             if (profesores.Count == 0) { throw new ArgumentException("No se encontró el profesor con el ID especificado."); }
             return profesores[0];
         }
         // Metodo para insert un Profesor
-        public int InsertarProfesor(Profesor profesor)
+        internal int InsertarProfesor(Profesor profesor)
         {
             int filasAfectadas = 0;
 
@@ -97,7 +97,7 @@ namespace Grupo06_TP_Programacion1.Dao
             return filasAfectadas;
         }
 
-        public List<Clase> TraerClasesPorProfesor(int idProfesor)
+        internal List<Clase> TraerClasesPorProfesor(int idProfesor)
         {
             List<Clase> listaClases = new List<Clase>();
             string query = $@"SELECT C.id_clase, C.precio, C.id_actividad, TA.tipo, C.id_profesor, 
@@ -139,7 +139,7 @@ namespace Grupo06_TP_Programacion1.Dao
             return listaClases;
         }
         // METODO EDITAR PROFESOR 
-        public int EditarProfesor(int IdProfesor, Profesor profesor)
+        internal int EditarProfesor(int IdProfesor, Profesor profesor)
         {
             int filasAfectadas = 0;
             string consultaSQL = $@"UPDATE Profesores SET nombre = @Nombre, apellido = @Apellido, 
@@ -165,7 +165,7 @@ namespace Grupo06_TP_Programacion1.Dao
         }
 
         //METODO RECUPERAR PROFESOR POR ID
-        public DataTable RecuperarProfesorPorId(int IdProfesor)
+        internal DataTable RecuperarProfesorPorId(int IdProfesor)
         {
             string consulta = $@"SELECT p.*, pv.id_provincia, l.id_localidad 
                                  FROM Profesores p 
@@ -176,7 +176,7 @@ namespace Grupo06_TP_Programacion1.Dao
             DataTable dt = oBdP.ConsultarBD(consulta);
             return dt;
         }
-        public List<Socio> TraerSociosPorClase(int idClase, int idProfesor)
+        internal List<Socio> TraerSociosPorClase(int idClase, int idProfesor)
         {
             List<Socio> listaSocios = new List<Socio>();
             string query = $@"SELECT S.id_socio,
@@ -204,7 +204,7 @@ namespace Grupo06_TP_Programacion1.Dao
             return listaSocios;
         }
 
-        public int EliminarProfesor(int id_profesor)
+        internal int EliminarProfesor(int id_profesor)
         {
             int filaAfectadas = 0;
             string query = $"DELETE FROM PROFESORES WHERE id_profesor = {id_profesor}";

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Grupo06_TP_Programacion1.Dao
 {
-    public class PersonaDao
+    internal class PersonaDao
     {
         AccesoDatos oBd;
 
@@ -20,7 +20,7 @@ namespace Grupo06_TP_Programacion1.Dao
         }
 
         //Metodo para cargar comboBox TipoDocumento
-        public List<TipoDocumento> RecuperarTiposDocumentos()
+        internal List<TipoDocumento> RecuperarTiposDocumentos()
         {
             List<TipoDocumento> listaTipos = new List<TipoDocumento>();
 
@@ -37,7 +37,7 @@ namespace Grupo06_TP_Programacion1.Dao
         }
 
         //Metodo para cargar comboBox Genero
-        public List<Genero> RecuperarGeneros()
+        internal List<Genero> RecuperarGeneros()
         {
             List<Genero> listaGeneros = new List<Genero>();
             DataTable tabla = oBd.ConsultarTabla("Generos");
@@ -51,7 +51,7 @@ namespace Grupo06_TP_Programacion1.Dao
             return listaGeneros;
         }
         // Metodo para cargar comboBox Provincia
-        public List<Provincia> RecuperarProvincias()
+        internal List<Provincia> RecuperarProvincias()
         {
             List<Provincia> listaProvincias = new List<Provincia>();
             DataTable tabla = oBd.ConsultarTabla("Provincias");
@@ -67,7 +67,7 @@ namespace Grupo06_TP_Programacion1.Dao
 
 
         // Metodo para cargar comboBox Localidad
-        public List<Localidad> RecuperarLocalidades(int idProvincia)
+        internal List<Localidad> RecuperarLocalidades(int idProvincia)
         {
             List<Localidad> listaLocalidades = new List<Localidad>();
             string consultaSQL = "SELECT * FROM Localidades WHERE id_provincia = " + idProvincia;
@@ -83,7 +83,7 @@ namespace Grupo06_TP_Programacion1.Dao
         }
 
         // Metodo para cargar ComboBox Barrio
-        public List<Barrio> RecuperarBarrios(int idLocalidad)
+        internal List<Barrio> RecuperarBarrios(int idLocalidad)
         {
             List<Barrio> listaBarrios = new List<Barrio>();
             string consultaSQL = "SELECT * FROM Barrios WHERE id_localidad = " + idLocalidad;
@@ -99,7 +99,7 @@ namespace Grupo06_TP_Programacion1.Dao
         }
 
         //Metodo para cargar ComboBox Contextura
-        public List<Contextura> RecuperarContexturas()
+        internal List<Contextura> RecuperarContexturas()
         {
             List<Contextura> listaContexturas = new List<Contextura>();
             DataTable tabla = oBd.ConsultarTabla("Tipos_Contextura");
@@ -114,7 +114,7 @@ namespace Grupo06_TP_Programacion1.Dao
         }
 
         // Metodo para cargar ComboBox TipoSangre
-        public List<TipoSangre> RecuperarTiposSangre()
+        internal List<TipoSangre> RecuperarTiposSangre()
         {
             List<TipoSangre> listaTiposSangre = new List<TipoSangre>();
             DataTable tabla = oBd.ConsultarTabla("Tipos_Sangre");
@@ -129,7 +129,7 @@ namespace Grupo06_TP_Programacion1.Dao
         }
 
         // Metodo para cargar ComboBox Cursos
-        public List<Curso> RecuperarCursos()
+        internal List<Curso> RecuperarCursos()
         {
             List<Curso> listaCursos = new List<Curso>();
             String consultaSQL = "SELECT id_actividad, tipo FROM Tipos_Actividades ORDER BY 2 ASC";
