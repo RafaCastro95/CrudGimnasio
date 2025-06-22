@@ -43,6 +43,18 @@ namespace Grupo06_TP_Programacion1.Presentacion
             dgvProfesores.RowHeadersVisible = false;
             ComboBoxHelper.CargarCombo(cboCurso, oPersonaServicio.TraerCursos(), "Nombre", "IdCurso", true);
             cboCurso.SelectedIndex = 0;
+            dgvProfesores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvProfesores.MultiSelect = false;
+            dgvProfesores.SelectionChanged += dgvProfesores_SelectionChanged;
+            btnEditar.Enabled = false;
+            btnBorrar.Enabled = false;
+        }
+
+        private void dgvProfesores_SelectionChanged(object sender, EventArgs e)
+        {
+            bool rowSelected = dgvProfesores.SelectedRows.Count > 0;
+            btnEditar.Enabled = rowSelected;
+            btnBorrar.Enabled = rowSelected;
         }
 
         private void CargarGridViewProfesores()

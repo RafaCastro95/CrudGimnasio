@@ -45,6 +45,9 @@ namespace Grupo06_TP_Programacion1.Presentacion
             dgvSocios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvSocios.MultiSelect = false;
             dgvSocios.CellClick += dgvSocios_CellClick;
+            dgvSocios.SelectionChanged += dgvSocios_SelectionChanged;
+            btnEditar.Enabled = false;
+            btnEliminar.Enabled = false;
         }
 
         private void dgvSocios_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -53,6 +56,13 @@ namespace Grupo06_TP_Programacion1.Presentacion
             {
                 dgvSocios.Rows[e.RowIndex].Selected = true;
             }
+        }
+
+        private void dgvSocios_SelectionChanged(object sender, EventArgs e)
+        {
+            bool rowSelected = dgvSocios.SelectedRows.Count > 0;
+            btnEditar.Enabled = rowSelected;
+            btnEliminar.Enabled = rowSelected;
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)

@@ -38,6 +38,13 @@ namespace Grupo06_TP_Programacion1.Presentacion
             cboConsulta.SelectedIndex = -1;
             cboConsulta.DropDownStyle = ComboBoxStyle.DropDownList;
             dgvConsultas.RowHeadersVisible = false;
+            btnConsultar.Enabled = false;
+            cboConsulta.SelectedIndexChanged += cboConsulta_SelectedIndexChanged;
+        }
+
+        private void cboConsulta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnConsultar.Enabled = cboConsulta.SelectedIndex >= 0;
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
