@@ -154,6 +154,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmDetalleCurso";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detalle Curso";
             this.Load += new System.EventHandler(this.FrmDetalleCurso_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClases)).EndInit();

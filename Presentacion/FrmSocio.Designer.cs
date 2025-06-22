@@ -244,6 +244,7 @@
             this.Controls.Add(this.btnNuevo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmSocio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Socios";
             this.Load += new System.EventHandler(this.FrmSocio_Load);
             this.panel1.ResumeLayout(false);

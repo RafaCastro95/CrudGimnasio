@@ -120,7 +120,7 @@ namespace Grupo06_TP_Programacion1.Dao
         public int EditarSocio(string documento, Socio socio)
         {
             int filasAfectadas = 0;
-            string consultaSQL = @"UPDATE Socios SET idSocio = @IdSocio, nombre = @Nombre, 
+            string consultaSQL = @"UPDATE Socios SET nombre = @Nombre, 
                                    apellido = @Apellido, fecha_nacimiento = @Fecha_nacimiento, 
                                    telefono = @Telefono, email = @Email, id_barrio = @Id_barrio, 
                                    id_documento = @Id_documento, id_genero = @Id_genero, 
@@ -129,7 +129,6 @@ namespace Grupo06_TP_Programacion1.Dao
             List<Parametro> parametros = new List<Parametro>
             {
                 new Parametro("@Documento", documento),
-                new Parametro("@IdSocio", socio.IdSocio),
                 new Parametro("@Nombre", socio.Nombre),
                 new Parametro("@Apellido", socio.Apellido),
                 new Parametro("@Fecha_nacimiento", socio.FechaNacimiento),

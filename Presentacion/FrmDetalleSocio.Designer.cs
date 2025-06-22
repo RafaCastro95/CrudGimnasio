@@ -355,6 +355,7 @@
             this.Controls.Add(this.gpbSocio);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDetalleSocio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detalle Socio";
             this.Load += new System.EventHandler(this.FrmDetalleSocio_Load);
             this.gpbSocio.ResumeLayout(false);

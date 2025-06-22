@@ -27,21 +27,30 @@ namespace Grupo06_TP_Programacion1
         {
             FrmSocio fs = new FrmSocio(this);
             this.Hide();
-            fs.Show();
+            if (fs.ShowDialog() == DialogResult.Cancel)
+            {
+                this.Show();
+            }
         }
 
         private void BtnProfesores_Click(object sender, EventArgs e)
         {
             FrmProfesor fp = new FrmProfesor(this);
             this.Hide();
-            fp.ShowDialog();
+            if (fp.ShowDialog() == DialogResult.Cancel)
+            {
+                this.Show();
+            }
         }
 
         private void BtnConsultas_Click(object sender, EventArgs e)
         {
             FrmConsultas fc = new FrmConsultas(this);
             this.Hide();
-            fc.ShowDialog();
+            if (fc.ShowDialog() == DialogResult.Cancel)
+            {
+                this.Show();
+            }
         }
     }
 }

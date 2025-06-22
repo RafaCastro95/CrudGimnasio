@@ -31,6 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProfesor));
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvProfesores = new System.Windows.Forms.DataGridView();
+            this.IdProfesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Profesores = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Barrio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cursos = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cboCurso = new System.Windows.Forms.ComboBox();
             this.lblCursos = new System.Windows.Forms.Label();
             this.txtNombreProfesor = new System.Windows.Forms.TextBox();
@@ -41,12 +47,6 @@
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.IdProfesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Profesores = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Barrio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cursos = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfesores)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -83,6 +83,47 @@
             this.dgvProfesores.Size = new System.Drawing.Size(493, 238);
             this.dgvProfesores.TabIndex = 5;
             this.dgvProfesores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProfesores_CellContentClick);
+            // 
+            // IdProfesor
+            // 
+            this.IdProfesor.HeaderText = "IdProfesor";
+            this.IdProfesor.Name = "IdProfesor";
+            this.IdProfesor.ReadOnly = true;
+            this.IdProfesor.Visible = false;
+            // 
+            // Profesores
+            // 
+            this.Profesores.HeaderText = "Profesores";
+            this.Profesores.Name = "Profesores";
+            this.Profesores.ReadOnly = true;
+            // 
+            // Documento
+            // 
+            this.Documento.HeaderText = "Documento";
+            this.Documento.Name = "Documento";
+            this.Documento.ReadOnly = true;
+            // 
+            // Telefono
+            // 
+            this.Telefono.HeaderText = "Teléfono";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
+            // 
+            // Barrio
+            // 
+            this.Barrio.HeaderText = "Barrio";
+            this.Barrio.Name = "Barrio";
+            this.Barrio.ReadOnly = true;
+            // 
+            // Cursos
+            // 
+            this.Cursos.HeaderText = "Cursos";
+            this.Cursos.Name = "Cursos";
+            this.Cursos.ReadOnly = true;
+            this.Cursos.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Cursos.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Cursos.Text = "Ver Cursos";
+            this.Cursos.UseColumnTextForButtonValue = true;
             // 
             // cboCurso
             // 
@@ -186,47 +227,6 @@
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Profesores";
             // 
-            // IdProfesor
-            // 
-            this.IdProfesor.HeaderText = "IdProfesor";
-            this.IdProfesor.Name = "IdProfesor";
-            this.IdProfesor.ReadOnly = true;
-            this.IdProfesor.Visible = false;
-            // 
-            // Profesores
-            // 
-            this.Profesores.HeaderText = "Profesores";
-            this.Profesores.Name = "Profesores";
-            this.Profesores.ReadOnly = true;
-            // 
-            // Documento
-            // 
-            this.Documento.HeaderText = "Documento";
-            this.Documento.Name = "Documento";
-            this.Documento.ReadOnly = true;
-            // 
-            // Telefono
-            // 
-            this.Telefono.HeaderText = "Teléfono";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
-            // 
-            // Barrio
-            // 
-            this.Barrio.HeaderText = "Barrio";
-            this.Barrio.Name = "Barrio";
-            this.Barrio.ReadOnly = true;
-            // 
-            // Cursos
-            // 
-            this.Cursos.HeaderText = "Cursos";
-            this.Cursos.Name = "Cursos";
-            this.Cursos.ReadOnly = true;
-            this.Cursos.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Cursos.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Cursos.Text = "Ver Cursos";
-            this.Cursos.UseColumnTextForButtonValue = true;
-            // 
             // FrmProfesor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,6 +244,7 @@
             this.Controls.Add(this.btnNuevo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmProfesor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Profesores";
             this.Load += new System.EventHandler(this.FrmProfesor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfesores)).EndInit();

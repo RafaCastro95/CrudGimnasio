@@ -155,6 +155,7 @@
             this.Controls.Add(this.btnSalir);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmConsultas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultas";
             this.Load += new System.EventHandler(this.FrmConsultas_Load);
             this.gpbProfesores.ResumeLayout(false);

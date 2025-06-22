@@ -313,6 +313,7 @@
             this.Controls.Add(this.gpbDatosProfesor);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDetalleProfesor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detalle Profesor";
             this.Load += new System.EventHandler(this.FrmDetalleProfesor_Load);
             this.gpbDatosProfesor.ResumeLayout(false);
